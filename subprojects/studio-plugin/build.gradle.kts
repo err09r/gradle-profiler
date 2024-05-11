@@ -1,6 +1,7 @@
 import org.jetbrains.intellij.IntelliJPluginConstants.IDEA_CONFIGURATION_NAME
 import org.jetbrains.intellij.IntelliJPluginConstants.IDEA_PLUGINS_CONFIGURATION_NAME
 import org.jetbrains.intellij.IntelliJPluginConstants.INTELLIJ_DEFAULT_DEPENDENCIES_CONFIGURATION_NAME
+import org.gradle.api.JavaVersion
 
 plugins {
     groovy
@@ -36,9 +37,8 @@ project.configurations
     .extendsFrom(ideaConfiguration, ideaPluginsConfiguration, intelliJDefaultDependenciesConfiguration)
 
 java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(11))
-    }
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
 }
 
 tasks.test {

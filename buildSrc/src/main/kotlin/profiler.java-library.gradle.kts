@@ -1,4 +1,5 @@
 import org.gradle.internal.os.OperatingSystem
+import org.gradle.api.JavaVersion
 
 plugins {
     id("profiler.allprojects")
@@ -17,9 +18,8 @@ repositories {
 }
 
 java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(8))
-    }
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
 
 tasks.withType<Test>().configureEach {
